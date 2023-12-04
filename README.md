@@ -6,6 +6,13 @@ Welcome to the restaurant web page project! This project showcases a web page fo
 
 Follow these steps to get the project up and running on your local machine.
 
+### Technologies Used
+
+- React.js
+- JSON Server
+- HTML5 and CSS3
+
+
 ### Prerequisites
 
 - Node.js installed on your machine
@@ -79,5 +86,75 @@ The API is structured to provide data for various sections of the web page.
 - **Events:** [http://localhost:3001/events](http://localhost:3001/events)
 - **Sustainability Initiatives:** [http://localhost:3001/sustainability](http://localhost:3001/sustainability)
 
-Feel free to explore these endpoints and customize the web page as needed!
 
+
+### Project Snapshots
+
+Here are some snapshots of the restaurant web page:
+
+#### Home Page
+
+![Home Page](/screenshots/home_snap.png)
+
+#### About Page
+
+![Home Page](/screenshots/about_snap.png)
+
+#### Menu Section
+
+![Menu Section](/screenshots/menu_snap.png)
+
+
+#### Chef Section
+
+![Menu Section](/screenshots/chef_snap.png)
+
+#### Award Section
+
+![Menu Section](/screenshots/awards_snap.png)
+
+#### Reviews Section
+
+![Reviews Section](/screenshots/review_sanp.png)
+
+#### Events Section
+
+![Events Section](/screenshots/event_snap.png)
+
+#### Sustainability Section
+
+![Sustainability Section](/screenshots/sust_snap.png)
+
+
+#### Sustainability Section
+
+![Sustainability Section](/screenshots/contact_snap.png)
+
+#### Find Section
+
+![Menu Section](/screenshots/find_snap.png)
+
+
+## Conclusion
+
+Thank you for exploring our restaurant web page project! We hope you find it both informative and inspiring. Whether you're a developer looking to understand the implementation details or a user exploring the offerings of our virtual restaurant, we appreciate your interest.
+
+## How to Contribute
+
+If you're interested in contributing to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature-name`.
+3. Make your changes and commit them: `git commit -m 'Add new feature'`.
+4. Push to your forked repository: `git push origin feature/your-feature-name`.
+5. Open a pull request, and we'll review your changes.
+
+## Issues and Bug Reports
+
+If you encounter any issues or find a bug, please open an issue on our [GitHub repository](https://github.com/your-username/your-repository/issues). Provide as much detail as possible to help us identify and resolve the problem.
+
+## Contact
+
+For further inquiries or information, feel free to contact us at [your.email@example.com](mailto:your.email@example.com).
+
+Happy coding and dining!
