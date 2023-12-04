@@ -109,6 +109,6 @@ If you encounter any issues or find a bug, please open an issue on our [GitHub r
 
 ## Contact
 
-For further inquiries or information, feel free to contact us at [your.email@example.com](mailto:your.email@example.com).
+For further inquiries or information, feel free to contact us at [your.email@example.com](mailto:aryanjais1234@gmail.com).
 
 Happy coding and dining!
