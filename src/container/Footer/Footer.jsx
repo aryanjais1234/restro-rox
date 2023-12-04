@@ -5,14 +5,15 @@ import { FooterOverlay, Newsletter } from '../../components';
 import { images } from '../../constants';
 import './Footer.css';
 
+import api from '../../Api';
+
 const Footer = () => {
   const [restaurantData, setRestaurantData] = useState({});
   const [dataIsLoaded, setDataIsLoaded] = useState(false);
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3001/restaurant");
-      const apiData = await response.json();
+      const apiData = await api.getRestaurantData();
 
       setRestaurantData(apiData);
       setDataIsLoaded(true);

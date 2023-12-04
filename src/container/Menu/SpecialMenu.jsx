@@ -4,6 +4,8 @@ import { SubHeading, MenuItem } from '../../components';
 import { images } from '../../constants';
 import './SpecialMenu.css';
 
+import api from '../../Api';
+
 const SpecialMenu = () => {
   const [menuData, setMenuData] = useState({});
   const [showFullMenu, setShowFullMenu] = useState(false);
@@ -11,8 +13,8 @@ const SpecialMenu = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3001/restaurant");
-      const apiData = await response.json();
+      
+      const apiData = await api.getRestaurantData();
 
       setMenuData(apiData.menu || {});
       setDataIsLoaded(true);

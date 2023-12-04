@@ -4,6 +4,8 @@ import { SubHeading } from '../../components';
 import { images } from '../../constants';
 import './Events.css';
 
+import api from '../../Api';
+
 const EventCard = ({ event }) => (
   <div className="app__laurels_awards-card">
     <p className="p__cormorant" style={{ color: '#DCCA87' }}>{event.date}</p>
@@ -20,8 +22,7 @@ const Events = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3001/restaurant");
-      const apiData = await response.json();
+      const apiData = await api.getRestaurantData();
 
       setEvents(apiData.events?.upcoming_events || []);
       setDataIsLoaded(true);

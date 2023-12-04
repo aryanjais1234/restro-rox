@@ -3,6 +3,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import images from '../../constants/images';
 import './Navbar.css';
+import api from '../../Api';
 
 const Navbar = () => {
   const [restaurants, setRestaurants] = useState({});
@@ -11,8 +12,7 @@ const Navbar = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3001/restaurant");
-      const data = await response.json();
+      const data = await api.getRestaurantData();
 
       setRestaurants(data);
       setDataIsLoaded(true);

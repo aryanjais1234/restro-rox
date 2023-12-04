@@ -3,14 +3,15 @@ import { SubHeading } from '../../components';
 import { images } from '../../constants';
 import './Chef.css';
 
+import api from '../../Api';
+
 const Chef = () => {
   const [restaurants, setRestaurants] = useState({});
   const [dataIsLoaded, setDataIsLoaded] = useState(false);
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3001/restaurant");
-      const data = await response.json();
+      const data = await api.getRestaurantData();
 
       setRestaurants(data);
       setDataIsLoaded(true);

@@ -4,6 +4,8 @@ import { SubHeading } from '../../components';
 import { images } from '../../constants';
 import './Laurels.css';
 
+import api from '../../Api';
+
 const AwardCard = ({ award }) => (
   <div className="app__laurels_awards-card">
     <p className="p__cormorant" style={{ color: '#DCCA87' }}>{award.year}</p>
@@ -20,8 +22,7 @@ const Laurels = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3001/restaurant");
-      const apiData = await response.json();
+      const apiData = await api.getRestaurantData();
 
       setAwards(apiData.awards || []);
       setDataIsLoaded(true);

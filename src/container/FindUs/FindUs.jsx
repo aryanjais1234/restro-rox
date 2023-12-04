@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
-
+import api from '../../Api';
 const FindUs = () => {
   const [data, setData] = useState({});
   const [dataIsLoaded, setDataIsLoaded] = useState(false);
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3001/restaurant");
-      const apiData = await response.json();
+      const apiData = await api.getRestaurantData();
 
       setData(apiData);
       setDataIsLoaded(true);
