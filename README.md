@@ -88,52 +88,6 @@ The API is structured to provide data for various sections of the web page.
 
 
 
-### Project Snapshots
-
-Here are some snapshots of the restaurant web page:
-
-#### Home Page
-
-![Home Page](/screenshots/home_snap.png)
-
-#### About Page
-
-![Home Page](/screenshots/about_snap.png)
-
-#### Menu Section
-
-![Menu Section](/screenshots/menu_snap.png)
-
-
-#### Chef Section
-
-![Menu Section](/screenshots/chef_snap.png)
-
-#### Award Section
-
-![Menu Section](/screenshots/awards_snap.png)
-
-#### Reviews Section
-
-![Reviews Section](/screenshots/review_sanp.png)
-
-#### Events Section
-
-![Events Section](/screenshots/event_snap.png)
-
-#### Sustainability Section
-
-![Sustainability Section](/screenshots/sust_snap.png)
-
-
-#### Sustainability Section
-
-![Sustainability Section](/screenshots/contact_snap.png)
-
-#### Find Section
-
-![Menu Section](/screenshots/find_snap.png)
-
 
 ## Conclusion
 
