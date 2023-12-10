@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
 
+// Assuming MenuItem component is imported from '../../components'
 import { SubHeading, MenuItem } from '../../components';
 import { images } from '../../constants';
-import './SpecialMenu.css';
-
 import api from '../../Api';
+import './SpecialMenu.css';
 
 const SpecialMenu = () => {
   const [menuData, setMenuData] = useState({});
   const [showFullMenu, setShowFullMenu] = useState(false);
+  const [selectedWineBeerDish, setSelectedWineBeerDish] = useState(null);
+  const [selectedSeasonalDish, setSelectedSeasonalDish] = useState(null);
   const [dataIsLoaded, setDataIsLoaded] = useState(false);
 
   const fetchData = async () => {
     try {
-      
       const apiData = await api.getRestaurantData();
-
       setMenuData(apiData.menu || {});
       setDataIsLoaded(true);
-
-      console.log(apiData);
     } catch (error) {
       console.error('Error fetching data:', error.message);
       console.error('Fetch error:', error);
@@ -33,6 +32,32 @@ const SpecialMenu = () => {
 
   const handleViewMore = () => {
     setShowFullMenu(true);
+  };
+
+  const handleWineBeerDishClick = (index) => {
+    setSelectedWineBeerDish((prevSelectedDish) => (prevSelectedDish === index ? null : index));
+  };
+
+  const handleSeasonalDishClick = (index) => {
+    setSelectedSeasonalDish((prevSelectedDish) => (prevSelectedDish === index ? null : index));
+  };
+
+  const renderDishDetails = (dish) => {
+    return (
+      <div className="dish-details">
+        <p>Description: {dish.description}</p>
+        <p>Price: {dish.price}</p>
+        <p>Ingredients: {dish.ingredients.join(', ')}</p>
+        <p>Nutritional Info:</p>
+        <ul>
+          <li>Calories: {dish.nutritional_info.calories}</li>
+          <li>Protein: {dish.nutritional_info.protein}</li>
+          <li>Carbohydrates: {dish.nutritional_info.carbohydrates}</li>
+          <li>Fat: {dish.nutritional_info.fat}</li>
+        </ul>
+        <p>Seasonal Availability: {dish.seasonal_availability.join(', ')}</p>
+      </div>
+    );
   };
 
   return (
@@ -52,12 +77,17 @@ const SpecialMenu = () => {
                   <p className="app__specialMenu-menu_subheading">{category.name}</p>
                   {category.items &&
                     category.items.map((item, itemIndex) => (
-                      <MenuItem
-                        key={item.name + itemIndex}
-                        title={item.name}
-                        price={item.price}
-                        tags={item.tags}
-                      />
+                      <div key={item.name + itemIndex} className="menu-item">
+                        <MenuItem
+                          title={item.name}
+                          price={item.price}
+                          tags={item.tags}
+                        />
+                        <Button variant="outlined" onClick={() => handleWineBeerDishClick(item)}>
+                          Info
+                        </Button>
+                        {selectedWineBeerDish === item && renderDishDetails(item)}
+                      </div>
                     ))}
                 </React.Fragment>
               ))}
@@ -69,26 +99,22 @@ const SpecialMenu = () => {
         </div>
 
         <div className="app__specialMenu-menu_cocktails flex__center">
-          <p className="app__specialMenu-menu_heading">Cocktails</p>
+          <p className="app__specialMenu-menu_heading">Seasonal Menu</p>
           <div className="app__specialMenu_menu_items">
-            {menuData.cocktails &&
-              (showFullMenu
-                ? menuData.cocktails.map((cocktail, index) => (
-                    <MenuItem
-                      key={cocktail.name + index}
-                      title={cocktail.name}
-                      price={cocktail.price}
-                      tags={cocktail.tags}
-                    />
-                  ))
-                : menuData.cocktails.slice(0, 2).map((cocktail, index) => (
-                    <MenuItem
-                      key={cocktail.name + index}
-                      title={cocktail.name}
-                      price={cocktail.price}
-                      tags={cocktail.tags}
-                    />
-                  )))}
+            {menuData.seasonal_menu &&
+              menuData.seasonal_menu.items.map((cocktail, index) => (
+                <div key={cocktail.name + index} className="menu-item">
+                  <MenuItem
+                    title={cocktail.name}
+                    price={cocktail.price}
+                    tags={cocktail.tags}
+                  />
+                  <Button variant="outlined" onClick={() => handleSeasonalDishClick(cocktail)}>
+                    Info
+                  </Button>
+                  {selectedSeasonalDish === cocktail && renderDishDetails(cocktail)}
+                </div>
+              ))}
           </div>
         </div>
       </div>

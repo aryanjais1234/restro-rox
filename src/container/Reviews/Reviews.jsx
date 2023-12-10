@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import {Rating} from '@mui/material/Rating';
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
 
@@ -39,7 +39,8 @@ const Reviews = () => {
               {data.reviews.map((review, index) => (
                 <div key={index} className="review">
                   <h1 className="p__opensans">Customer: {review.customer_name}</h1>
-                  <h5 className="p__opensans">Rating: {review.rating}</h5>
+                  <h5 className="p__opensans">Rating: {review.rating} </h5>
+                  {/* <Rating name="read-only" value={review.rating} readOnly /> */}
                   <p className="p__opensans">Comment: {review.comment}</p>
                   <hr />
                 </div>
