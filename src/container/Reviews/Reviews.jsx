@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Rating} from '@mui/material/Rating';
+// import {Rating} from '@mui/material/Rating';
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
 
